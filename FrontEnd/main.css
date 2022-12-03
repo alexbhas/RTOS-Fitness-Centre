@@ -1,0 +1,187 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 900;
+    padding: 40px 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: blueviolet;
+}
+
+.container{
+    margin: 0 auto;
+}
+
+.logo{
+    width: 250px;
+    margin-left: 50px;
+    padding: 10px 0;
+    position: relative;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-size: 2.2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    transition: all 0.2s;
+}
+
+nav{
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 5px 50px;
+    
+}
+
+.intro{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    font-size: 2.2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.Site-title{
+    font-size: 10rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-top: 10vmin;
+}
+
+.start{
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+/* Header Popups
+============================================================================= */
+
+/* General */
+.head-btn{
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.pop-header{
+    position: relative;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+/* References */
+.refPop{
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.ref-popup-content{
+    position:relative;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: black;
+    background-color: whitesmoke;
+    padding: 1rem 1.5rem;
+    width: 90%;
+    border-radius: 0.5rem; 
+}
+  
+.ref-close-button{
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgrey;
+}
+
+.ref-close-button:hover{
+    background-color: darkgray;
+}
+
+.show-refpopup{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+/* ContactS */
+.conPop{
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.con-popup-content{
+    position:relative;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: black;
+    background-color: whitesmoke;
+    padding: 1rem 1.5rem;
+    width: 90%;
+    border-radius: 0.5rem;
+}
+  
+.con-close-button{
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgrey;
+}
+
+.con-close-button:hover{
+    background-color: darkgray;
+}
+
+.show-conpopup{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
