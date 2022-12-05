@@ -19,7 +19,18 @@ a{
 }
 
 a:hover{
+    background-color: blueviolet;
+    color: white;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover{
     color: blueviolet;
+    background-color: whitesmoke;
 }
 
 .container{
