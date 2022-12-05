@@ -16,7 +16,7 @@ TARGET = -Vgcc_ntox86_64
 
 CFLAGS += $(DEBUG) $(TARGET) -Wall
 LDFLAGS+= $(DEBUG) $(TARGET)
-BINS = server sauna emergency
+BINS = server sauna emergency cardio pool weightroom
 all: $(BINS)
 
 clean:
@@ -27,4 +27,7 @@ clean:
 server.o: server.c server.h
 sauna.o: sauna.c server.h
 emergency.o: emergency.c server.h
+cardio.o: cardio.c server.h
+pool.o: pool.c server.h
+weightroom.o: weightroom.c server.h
 
