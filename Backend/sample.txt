@@ -1,0 +1,55 @@
+{"type":"sauna", "temp":76}
+{"type":"pool", "temp":27}
+{"type":"pool", "temp":28}
+{"type":"emergency", "area":"weightroom"}
+{"type":"sauna", "temp":77}
+{"type":"pool", "temp":29}
+{"type":"sauna", "temp":78}
+{"type":"pool", "temp":28}
+{"type":"sauna", "temp":77}
+{"type":"sauna", "temp":76}
+{"type":"weightroom", "weight":541, "lift":"deadlift"}
+{"type":"sauna", "temp":75}
+{"type":"emergency", "area":"cardio"}
+{"type":"sauna", "temp":74}
+{"type":"sauna", "temp":73}
+{"type":"sauna", "temp":72}
+{"type":"pool", "temp":29}
+{"type":"cardio", "id":3, "bpm":47}
+{"type":"emergency", "area":"weightroom"}
+{"type":"cardio", "id":7, "bpm":120}
+{"type":"weightroom", "weight":530, "lift":"bench press"}
+{"type":"pool", "temp":30}
+{"type":"emergency", "area":"weightroom"}
+{"type":"sauna", "temp":71}
+{"type":"weightroom", "weight":526, "lift":"squat rack"}
+{"type":"sauna", "temp":70}
+{"type":"sauna", "temp":71}
+{"type":"cardio", "id":8, "bpm":121}
+{"type":"pool", "temp":29}
+{"type":"sauna", "temp":70}
+{"type":"pool", "temp":30}
+{"type":"sauna", "temp":71}
+{"type":"pool", "temp":29}
+{"type":"weightroom", "weight":532, "lift":"squat rack"}
+{"type":"cardio", "id":7, "bpm":47}
+{"type":"pool", "temp":28}
+{"type":"pool", "temp":29}
+{"type":"sauna", "temp":70}
+{"type":"cardio", "id":2, "bpm":46}
+{"type":"cardio", "id":11, "bpm":123}
+{"type":"pool", "temp":30}
+{"type":"weightroom", "weight":509, "lift":"deadlift"}
+{"type":"cardio", "id":14, "bpm":121}
+{"type":"sauna", "temp":71}
+{"type":"pool", "temp":31}
+{"type":"emergency", "area":"sauna"}
+{"type":"weightroom", "weight":537, "lift":"squat rack"}
+{"type":"sauna", "temp":72}
+{"type":"emergency", "area":"cardio"}
+{"type":"pool", "temp":30}
+{"type":"sauna", "temp":71}
+{"type":"pool", "temp":29}
+{"type":"emergency", "area":"cardio"}
+{"type":"pool", "temp":28}
+{"type":"sauna", "temp":72}
