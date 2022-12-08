@@ -274,7 +274,7 @@ nav{
 .chart-wrap .grid::after {
     font-size: 0.8em;
     font-weight: bold;
-    content: 'N';
+    content: '10';
     position: absolute;
     right: -1.5em;
     top: -1.5em;
