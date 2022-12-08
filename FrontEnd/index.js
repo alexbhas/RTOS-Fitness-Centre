@@ -1,42 +1,27 @@
 
-// const output = document.getElementById("output")
+const output = document.getElementById("output")
 
-// document.getElementById("file").onchange = function() {
-//   var file = this.files[0];
-//   console.log("hello");
-//   var reader = new FileReader();
-//   reader.onload = function(progressEvent) {
-//     // Entire file
-//     const text = this.result;
-//     output.innerText = text
+document.getElementById("file").onchange = function() {
+  var file = this.files[0];
+  var reader = new FileReader();
+  reader.onload = function(progressEvent) {
+    // Entire file
+    const text = this.result;
+    //output.innerText = text;
+    // By lines
+    var lines = text.split('\n');
 
-//     // By lines
-//     var lines = text.split('\n');
-//     for (var line = 0; line < lines.length; line++) {
-//       console.log(lines[line]);
-//     }
-//   };
-//   reader.readAsText(file);
-// };
+    objects = lines.map(line => JSON.parse(line));
+    console.log(objects);
 
+    const emergencyCount = countEmergenciesInArea(objects);
+    console.log(emergencyCount);
+    setEmergencyDiv(emergencyCount);
 
-//Parse txt data into one JSON object
-function txtToJson(){
-  var fs = require("fs");
-
-  // Read the contents of the file as a string
-  const fileContents = fs.readFileSync('sample.txt', 'utf8');
-
-  // Split the string into an array of lines
-  const lines = fileContents.split('\n');
-
-  // Convert each line into a JSON object and store it in the objects array
-  objects = lines.map(line => JSON.parse(line));
-
-  return objects;
-}
-
-// Create an empty object to hold the grouped data
+  };
+  //Display all Values on screen
+  reader.readAsText(file);
+};
 
 function countEmergenciesInArea(emergencyValues) {
   // Create an empty object to store the counts for each area
@@ -53,11 +38,32 @@ function countEmergenciesInArea(emergencyValues) {
       counts[data.area]++;
     }
   }
-
   return counts;
 }
 
-//{ weightroom: 3, cardio: 3, sauna: 1 }
+function setEmergencyDiv(emergencyCount){
+  console.log(emergencyCount);
+  for(const key in emergencyCount){
+    if(key === document.getElementById('sauna').id){
+      const saunaElement = document.getElementById('sauna');
+      saunaElement.style.setProperty('--bar-value', (emergencyCount[key]*10) + '%');
+      saunaElement.title = 'Sauna - ' + emergencyCount[key];
+    }else if(key === document.getElementById('weightroom').id){
+      const saunaElement = document.getElementById('weightroom');
+      saunaElement.style.setProperty('--bar-value', (emergencyCount[key]*10) + '%');
+      saunaElement.title = 'Weightroom - ' + emergencyCount[key];
+    }else if(key === document.getElementById('pool').id){
+      const saunaElement = document.getElementById('pool');
+      saunaElement.style.setProperty('--bar-value', (emergencyCount[key]*10) + '%');
+      saunaElement.title = 'Pool - ' + emergencyCount[key];
+    }else if(key === document.getElementById('cardio').id){
+      const saunaElement = document.getElementById('cardio');
+      saunaElement.style.setProperty('--bar-value', (emergencyCount[key]*10) + '%');
+      saunaElement.title = 'Cardio - ' + emergencyCount[key];
+    }
+  }
+}
+
 
 function printHello(){ 
   saunaScatter();
@@ -67,29 +73,29 @@ function printHello(){
 
   //Get EmergencyCount
   const textData = txtToJson();
-  const emergnecyCount = countEmergenciesInArea(textData);
+  const emergencyCount = countEmergenciesInArea(textData);
 
   //Sauna value setting
   var saunaPer = '70';
   var saunaCnt = '7';
 
-  // for(const key in emergnecyCount){
-  //   console.log(key);
-  //   if(key === document.getElementById('sauna')){
-  //     const saunaElement = document.getElementById("sauna");
-  //     saunaElement.style.setProperty('--bar-value', );
-  //     saunaElement.title = 'Sauna - ' + emergnecyCount[key].toString();
-  //   }
-  // }
+  for(const key in emergencyCount){
+    console.log(key);
+    if(key === document.getElementById('sauna')){
+      const saunaElement = document.getElementById("sauna");
+      saunaElement.style.setProperty('--bar-value', );
+      saunaElement.title = 'Sauna - ' + emergencyCount[key].toString();
+    }
+  }
 
 }
 
 printHello();
 
 //window.onload = printHello()
-// for(const key in emergnecyCount){
-//   if(emergnecyCount[key] === document.getElementById('sauna')){
-//     saunaElement.style.setProperty('--bar-value:', emergnecyCount[key]);
+// for(const key in emergencyCount){
+//   if(emergencyCount[key] === document.getElementById('sauna')){
+//     saunaElement.style.setProperty('--bar-value:', emergencyCount[key]);
 //   }
 // }
 
@@ -206,3 +212,34 @@ function cardioScatter(){
   
   Plotly.newPlot('cardDiv', data, layout);
 }
+
+
+//Scrapped code
+
+/*
+    for (var line = 0; line < lines.length; line++) {
+      //console.log(lines[line]);
+    }
+//Parse txt data into one JSON object
+// function txtToJson(file){
+//   var fs = require("fs");
+
+//   // Read the contents of the file as a string
+//   const fileContents = fs.readFileSync('sample.txt', 'utf8');
+
+//   // Split the string into an array of lines
+//   const lines = fileContents.split('\n');
+
+//   // Convert each line into a JSON object and store it in the objects array
+//   objects = lines.map(line => JSON.parse(line));
+
+//   return objects;
+// }
+
+*/
+
+// Create an empty object to hold the grouped data
+
+
+
+//{ weightroom: 3, cardio: 3, sauna: 1 }
