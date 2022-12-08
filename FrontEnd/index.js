@@ -1,9 +1,29 @@
-//Requires
-var readline = require('readline');
-var fs = require('fs');
+
+const output = document.getElementById("output")
+
+document.getElementById("file").onchange = function() {
+  var file = this.files[0];
+  console.log("hello");
+  var reader = new FileReader();
+  reader.onload = function(progressEvent) {
+    // Entire file
+    const text = this.result;
+    output.innerText = text
+
+    // By lines
+    var lines = text.split('\n');
+    for (var line = 0; line < lines.length; line++) {
+      console.log(lines[line]);
+    }
+  };
+  reader.readAsText(file);
+};
+
 
 //Parse txt data into one JSON object
-function txtToJson(filename){
+function txtToJson(){
+  var fs = require("fs");
+
   // Read the contents of the file as a string
   const fileContents = fs.readFileSync('sample.txt', 'utf8');
 
@@ -17,8 +37,6 @@ function txtToJson(filename){
 }
 
 // Create an empty object to hold the grouped data
-const textData = txtToJson();
-console.log(textData);
 
 function countEmergenciesInArea(emergencyValues) {
   // Create an empty object to store the counts for each area
@@ -39,25 +57,32 @@ function countEmergenciesInArea(emergencyValues) {
   return counts;
 }
 
-const emergnecyCount = countEmergenciesInArea(textData);
-console.log()
-
 //{ weightroom: 3, cardio: 3, sauna: 1 }
+
 function printHello(){
-  
+  //Get EmergencyCount
+  const textData = txtToJson();
+  const emergnecyCount = countEmergenciesInArea(textData);
+
   //Sauna value setting
   var saunaPer = '70';
   var saunaCnt = '7';
-  const saunaElement = document.getElementById("sauna");
-  saunaElement.style.setProperty('--bar-value',saunaPer+'%');
-  saunaElement.title = 'Sauna - ' + saunaCnt;
+
+  for(const key in emergnecyCount){
+    console.log(key);
+    // if(key === document.getElementById('sauna')){
+    //   const saunaElement = document.getElementById("sauna");
+    //   saunaElement.style.setProperty('--bar-value', );
+    //   saunaElement.title = 'Sauna - ' + emergnecyCount[key].toString();
+    // }
+  }
 }
 
+printHello();
 
+//window.onload = printHello()
 // for(const key in emergnecyCount){
 //   if(emergnecyCount[key] === document.getElementById('sauna')){
 //     saunaElement.style.setProperty('--bar-value:', emergnecyCount[key]);
 //   }
 // }
-console.log(" --------------------------------------- \nEmergency Count data:")
-console.log(emergnecyCount);

@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
 
-    <body onload="printHello()">
+    <body>
         <header class="container headers">
             <p class="logo">Comp 4900 Project</p>
             <p class="ttl" style="justify-content: center;">Real Time Fitness Center Operating System</p>
@@ -67,8 +67,15 @@
 
             <h3>Sauna</h3>
             
-
-            
+            <script>
+                document.getElementById('inputfile').addEventListener('change', function() {
+                var fr=new FileReader();
+                fr.onload=function(){
+                    document.getElementById('output').textContent=fr.result;
+                }
+                fr.readAsText(this.files[0]);
+                })
+            </script>
         </div>
         <script src="./index.js"></script>
         <script src="./main.js"></script>
