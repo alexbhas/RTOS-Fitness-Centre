@@ -45,9 +45,16 @@ const emergnecyCount = countEmergenciesInArea(textData);
 console.log()
 
 //{ weightroom: 3, cardio: 3, sauna: 1 }
+function printHello(){
+  
+  //Sauna value setting
+  var saunaPer = '70';
+  var saunaCnt = '7';
+  const saunaElement = document.getElementById("sauna");
+  saunaElement.style.setProperty('--bar-value',saunaPer+'%');
+  saunaElement.title = 'Sauna - ' + saunaCnt;
+}
 
-const saunaElement = document.getElementById("sauna");
-saunaElement.style.setProperty("--bar-value:", "40%");
 
 // for(const key in emergnecyCount){
 //   if(emergnecyCount[key] === document.getElementById('sauna')){

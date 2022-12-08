@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
 
-    <body>
+    <body onload="printHello()">
         <header class="container headers">
             <p class="logo">Comp 4900 Project</p>
             <p class="ttl" style="justify-content: center;">Real Time Fitness Center Operating System</p>
@@ -53,10 +53,10 @@
                 <h2 class="title" style="margin-left: 30%;">Rate of Emergenicies by Area</h2>
                 
                 <div class="grid">
-                    <div id = "sauna" class="bar"  title="Sauna - 4"></div>
-                    <div id = "weightroom" class="bar" style="--bar-value:20%;" title="Weightroom - 2"></div>
-                    <div id = "pool" class="bar" style="--bar-value:10%;" title="Pool - 1"></div>
-                    <div id = "cardio" class="bar" style="--bar-value:30%;" title="Cardio - 3"></div>   
+                    <div id = "sauna" class="bar"></div>
+                    <div id = "weightroom" class="bar" style="--bar-value:0%;" title="Weightroom - 2"></div>
+                    <div id = "pool" class="bar" style="--bar-value:0%;" title="Pool - 1"></div>
+                    <div id = "cardio" class="bar" style="--bar-value:0%;" title="Cardio - 3"></div>   
                 </div>
             </div>
             <p style="margin-top: -10%;">Next we will examine each rooms states individually.</p>
