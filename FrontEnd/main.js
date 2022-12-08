@@ -1,6 +1,3 @@
-
-
-
 /* ========================================================================
  * Header PopUps
  * ======================================================================== */
@@ -38,3 +35,11 @@ function conwindowOnClick(event){
 
 con_closeButton.addEventListener("click",contactFunction);
 window.addEventListener("click", conwindowOnClick);
+
+/* ========================================================================
+ * Start
+ * ======================================================================== */
+
+function startFunction(){
+  window.location.assign("project.html");
+}
