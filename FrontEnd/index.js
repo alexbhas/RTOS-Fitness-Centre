@@ -1,23 +1,23 @@
 
-const output = document.getElementById("output")
+// const output = document.getElementById("output")
 
-document.getElementById("file").onchange = function() {
-  var file = this.files[0];
-  console.log("hello");
-  var reader = new FileReader();
-  reader.onload = function(progressEvent) {
-    // Entire file
-    const text = this.result;
-    output.innerText = text
+// document.getElementById("file").onchange = function() {
+//   var file = this.files[0];
+//   console.log("hello");
+//   var reader = new FileReader();
+//   reader.onload = function(progressEvent) {
+//     // Entire file
+//     const text = this.result;
+//     output.innerText = text
 
-    // By lines
-    var lines = text.split('\n');
-    for (var line = 0; line < lines.length; line++) {
-      console.log(lines[line]);
-    }
-  };
-  reader.readAsText(file);
-};
+//     // By lines
+//     var lines = text.split('\n');
+//     for (var line = 0; line < lines.length; line++) {
+//       console.log(lines[line]);
+//     }
+//   };
+//   reader.readAsText(file);
+// };
 
 
 //Parse txt data into one JSON object
@@ -59,7 +59,12 @@ function countEmergenciesInArea(emergencyValues) {
 
 //{ weightroom: 3, cardio: 3, sauna: 1 }
 
-function printHello(){
+function printHello(){ 
+  saunaScatter();
+  poolScatter();
+  weightScatter();
+  cardioScatter();
+
   //Get EmergencyCount
   const textData = txtToJson();
   const emergnecyCount = countEmergenciesInArea(textData);
@@ -68,14 +73,15 @@ function printHello(){
   var saunaPer = '70';
   var saunaCnt = '7';
 
-  for(const key in emergnecyCount){
-    console.log(key);
-    // if(key === document.getElementById('sauna')){
-    //   const saunaElement = document.getElementById("sauna");
-    //   saunaElement.style.setProperty('--bar-value', );
-    //   saunaElement.title = 'Sauna - ' + emergnecyCount[key].toString();
-    // }
-  }
+  // for(const key in emergnecyCount){
+  //   console.log(key);
+  //   if(key === document.getElementById('sauna')){
+  //     const saunaElement = document.getElementById("sauna");
+  //     saunaElement.style.setProperty('--bar-value', );
+  //     saunaElement.title = 'Sauna - ' + emergnecyCount[key].toString();
+  //   }
+  // }
+
 }
 
 printHello();
@@ -86,3 +92,117 @@ printHello();
 //     saunaElement.style.setProperty('--bar-value:', emergnecyCount[key]);
 //   }
 // }
+
+
+
+/* ========================================================================
+ * Scatter Plot
+ * ======================================================================== */
+
+function saunaScatter(){
+  var trace1 = {
+    x: [1, 2, 3, 4, 5],
+    y: [1, 6, 3, 6, 1],   //this will be array of sauna values
+    mode: 'markers',
+    type: 'scatter',
+    name: 'Team A',
+    text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
+    marker: { size: 12 }
+  };
+  
+
+  var data = [ trace1];
+  
+  var layout = {
+    xaxis: {
+      range: [ 1, 9 ]
+    },
+    yaxis: {
+      range: [0, 8]
+    },
+    title:'Sauna Log Points'
+  };
+  
+  Plotly.newPlot('saunDiv', data, layout);
+}
+
+function poolScatter(){
+  var trace1 = {
+    x: [1, 2, 3, 4, 5],
+    y: [1, 6, 3, 6, 1],   //this will be array of pool values
+    mode: 'markers',
+    type: 'scatter',
+    name: 'Team A',
+    text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
+    marker: { size: 12 }
+  };
+  
+
+  var data = [ trace1];
+  
+  var layout = {
+    xaxis: {
+      range: [ 1, 9 ]
+    },
+    yaxis: {
+      range: [0, 8]
+    },
+    title:'Pool Log Points'
+  };
+  
+  Plotly.newPlot('poolDiv', data, layout);
+}
+
+function weightScatter(){
+  var trace1 = {
+    x: [1, 2, 3, 4, 5],
+    y: [1, 6, 3, 6, 1],   //this will be array of sauna values
+    mode: 'markers',
+    type: 'scatter',
+    name: 'Team A',
+    text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
+    marker: { size: 12 }
+  };
+  
+
+  var data = [ trace1];
+  
+  var layout = {
+    xaxis: {
+      range: [ 1, 9 ]
+    },
+    yaxis: {
+      range: [0, 8]
+    },
+    title:'Weightroom Emergency Log Points'
+  };
+  
+  Plotly.newPlot('wegtDiv', data, layout);
+}
+
+function cardioScatter(){
+  var trace1 = {
+    x: [1, 2, 3, 4, 5],
+    y: [1, 6, 3, 6, 1],   //this will be array of sauna values
+    mode: 'markers',
+    type: 'scatter',
+    name: 'Team A',
+    text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
+    marker: { size: 12 }
+  };
+  
+
+  var data = [ trace1];
+  
+  var layout = {
+    xaxis: {
+      range: [ 1, 9 ]
+    },
+    yaxis: {
+      range: [0, 8]
+    },
+    title:'Cardio Area Emergency Log Points'
+  };
+  
+  Plotly.newPlot('cardDiv', data, layout);
+}
