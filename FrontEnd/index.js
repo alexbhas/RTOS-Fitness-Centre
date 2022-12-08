@@ -4,8 +4,6 @@ var fs = require('fs');
 
 //Parse txt data into one JSON object
 function txtToJson(filename){
-  const fs = require('fs');
-
   // Read the contents of the file as a string
   const fileContents = fs.readFileSync('sample.txt', 'utf8');
 
