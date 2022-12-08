@@ -22,7 +22,6 @@ function txtToJson(filename){
 const textData = txtToJson();
 console.log(textData);
 
-
 function countEmergenciesInArea(emergencyValues) {
   // Create an empty object to store the counts for each area
   const counts = {};
@@ -43,6 +42,17 @@ function countEmergenciesInArea(emergencyValues) {
 }
 
 const emergnecyCount = countEmergenciesInArea(textData);
-console.log(emergnecyCount);
+console.log()
 
-//console.log(textData);
+//{ weightroom: 3, cardio: 3, sauna: 1 }
+
+const saunaElement = document.getElementById("sauna");
+saunaElement.style.setProperty("--bar-value:", "40%");
+
+// for(const key in emergnecyCount){
+//   if(emergnecyCount[key] === document.getElementById('sauna')){
+//     saunaElement.style.setProperty('--bar-value:', emergnecyCount[key]);
+//   }
+// }
+console.log(" --------------------------------------- \nEmergency Count data:")
+console.log(emergnecyCount);
