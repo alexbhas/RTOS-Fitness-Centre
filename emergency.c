@@ -29,7 +29,6 @@ int main(int argc, char **argv){
 	while(1){
 
 		//Check if there is an emergency. If not, don't update the server
-		//something wrong garbage data
 		area = updateEmerg();
 		if(!(area == NULL)){
 			strcpy(change.area, area);
@@ -68,6 +67,8 @@ char* updateEmerg(){
 	} else {
 		return NULL;
 	}
+
+	return NULL;
 
 }
 
