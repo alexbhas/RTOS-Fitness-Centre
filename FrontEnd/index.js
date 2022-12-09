@@ -4,11 +4,7 @@ const output = document.getElementById("output")
 document.getElementById("file").onchange = function() {
   var file = this.files[0];
   var reader = new FileReader();
-  
-  //Scatter plots
-  poolScatter();
-  weightScatter();
-  cardioScatter();
+
   reader.onload = function(progressEvent) {
     // Entire file
     const text = this.result;
@@ -23,17 +19,66 @@ document.getElementById("file").onchange = function() {
     //console.log(emergencyCount);
     setEmergencyDiv(emergencyCount);
 
-    const tempData = getTempData(objects)
-    console.log(tempData);
+    //Sauna & Pool Scatter Plot
+    const temperatureData = getTempData(objects)
+    //console.log(temperatureData);
 
-    //Sauna
-    saunaScatter(tempData);
+    saunaScatter(temperatureData);
+    poolScatter(temperatureData);
 
+    //Weight & Cardio Scatter 
+    const weightData = getWeightData(objects);
+    weightScatter(weightData);
+     
+    //Cardio
+    const cardioData = getCardioData(objects);
+    console.log(cardioData);
+    cardioScatter(cardioData);
 
   };
   //Display all Values on screen
   reader.readAsText(file);
 };
+
+function getCardioData(cardioData){
+  var cardioList = {};
+  
+  for (var i = 0; i < cardioData.length; i++) {
+    var jsonObject = cardioData[i];
+    var type = jsonObject.type;
+    if (type === "sauna" || type === "pool" || type === "emergency" || type === "weightroom") continue;
+    if (jsonObject.hasOwnProperty("cardio")) {
+      var cardio = jsonObject.bpm;
+      if (cardioList.hasOwnProperty(type)) {
+        cardioList[type].push(cardio);
+      } else {
+        cardioList[type] = [cardio];
+      }
+    }
+  }
+
+  return cardioList;
+}
+
+function getWeightData(weightData){
+  var weightList = {};
+  
+  for (var i = 0; i < weightData.length; i++) {
+    var jsonObject = weightData[i];
+    var type = jsonObject.type;
+    if (type === "sauna" || type === "pool" || type === "emergency" || type === "cardio") continue;
+    if (jsonObject.hasOwnProperty("weight")) {
+      var weight = jsonObject.weight;
+      if (weightList.hasOwnProperty(type)) {
+        weightList[type].push(weight);
+      } else {
+        weightList[type] = [weight];
+      }
+    }
+  }
+
+  return weightList;
+}
 
 function getTempData(tempData){
   var temperatureLists = {};
@@ -41,7 +86,7 @@ function getTempData(tempData){
   for (var i = 0; i < tempData.length; i++) {
     var jsonObject = tempData[i];
     var type = jsonObject.type;
-    if (type === "emergency" || type === "weightroom") continue;
+    if (type === "emergency" || type === "weightroom" || type === "cardio") continue;
     if (jsonObject.hasOwnProperty("temp")) {
       var temp = jsonObject.temp;
       if (temperatureLists.hasOwnProperty(type)) {
@@ -96,12 +141,6 @@ function setEmergencyDiv(emergencyCount){
   }
 }
 
-//window.onload = printHello()
-// for(const key in emergencyCount){
-//   if(emergencyCount[key] === document.getElementById('sauna')){
-//     saunaElement.style.setProperty('--bar-value:', emergencyCount[key]);
-//   }
-// }
 
 /* ========================================================================
  * Scatter Plot
@@ -109,14 +148,11 @@ function setEmergencyDiv(emergencyCount){
 
 function saunaScatter(tempData){
   tempData = tempData['sauna'];
-  console.log(tempData)
   
   var min = Math.min.apply(Math, tempData) - 5;
   var max = Math.max.apply(Math, tempData) + 5 ;
-  console.log("Min: "+ min + " Max: "+max);
 
   var valx = Array.apply(null, {length: tempData.length+1 }).map(Number.call, Number).slice(1);
-  console.log(valx)
 
   var trace1 = {
     x: valx,
@@ -146,14 +182,11 @@ function saunaScatter(tempData){
 
 function poolScatter(tempData){
   tempData = tempData['pool'];
-  console.log(tempData)
   
   var min = Math.min.apply(Math, tempData) - 5;
   var max = Math.max.apply(Math, tempData) + 5 ;
-  console.log("Min: "+ min + " Max: "+max);
 
   var valx = Array.apply(null, {length: tempData.length+1 }).map(Number.call, Number).slice(1);
-  console.log(valx)
 
   var trace1 = {
     x: valx,
@@ -181,10 +214,17 @@ function poolScatter(tempData){
   Plotly.newPlot('poolDiv', data, layout);
 }
 
-function weightScatter(){
+function weightScatter(tempData){
+  tempData = tempData['weightroom'];
+  
+  var min = Math.min.apply(Math, tempData) - 5;
+  var max = Math.max.apply(Math, tempData) + 5 ;
+
+  var valx = Array.apply(null, {length: tempData.length+1 }).map(Number.call, Number).slice(1);
+
   var trace1 = {
-    x: [1, 2, 3, 4, 5],
-    y: [1, 6, 3, 6, 1],   //this will be array of sauna values
+    x: valx,
+    y: tempData,   //this will be array of sauna values
     mode: 'markers',
     type: 'scatter',
     name: 'Team A',
@@ -197,12 +237,12 @@ function weightScatter(){
   
   var layout = {
     xaxis: {
-      range: [ 1, 9 ]
+      range: [ 0, tempData.length+1 ]
     },
     yaxis: {
-      range: [0, 8]
+      range: [min, max]
     },
-    title:'Weightroom Emergency Log Points'
+    title:'Weightroom Weight Detection Log Points'
   };
   
   Plotly.newPlot('wegtDiv', data, layout);
