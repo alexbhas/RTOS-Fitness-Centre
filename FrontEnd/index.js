@@ -9,6 +9,10 @@ document.getElementById("file").onchange = function() {
     // Entire file, split by line, & map to object variable
     const text = this.result;
     var lines = text.split('\n');
+    var objects = {};
+
+  
+    lines[lines.length-1] = lines[lines.length-2];
     objects = lines.map(line => JSON.parse(line));
 
     //Emergency Count Graph

@@ -1,0 +1,152 @@
+{"type":"pool", "temp":29}
+{"type":"sauna", "temp":76}
+{"type":"pool", "temp":30}
+{"type":"pool", "temp":31}
+{"type":"sauna", "temp":75}
+{"type":"cardio", "id":4, "bpm":47}
+{"type":"sauna", "temp":74}
+{"type":"pool", "temp":32}
+{"type":"sauna", "temp":75}
+{"type":"pool", "temp":33}
+{"type":"sauna", "temp":76}
+{"type":"weightroom", "weight":516, "lift":"bench press"}
+{"type":"pool", "temp":32}
+{"type":"cardio", "id":5, "bpm":49}
+{"type":"pool", "temp":31}
+{"type":"cardio", "id":1, "bpm":50}
+{"type":"sauna", "temp":75}
+{"type":"pool", "temp":30}
+{"type":"sauna", "temp":76}
+{"type":"sauna", "temp":75}
+{"type":"pool", "temp":29}
+{"type":"pool", "temp":28}
+{"type":"pool", "temp":27}
+{"type":"sauna", "temp":74}
+{"type":"cardio", "id":13, "bpm":121}
+{"type":"pool", "temp":26}
+{"type":"sauna", "temp":75}
+{"type":"pool", "temp":27}
+{"type":"pool", "temp":28}
+{"type":"sauna", "temp":74}
+{"type":"cardio", "id":2, "bpm":122}
+{"type":"weightroom", "weight":545, "lift":"squat rack"}
+{"type":"pool", "temp":27}
+{"type":"sauna", "temp":75}
+{"type":"cardio", "id":1, "bpm":50}
+{"type":"weightroom", "weight":550, "lift":"bench press"}
+{"type":"pool", "temp":28}
+{"type":"sauna", "temp":76}
+{"type":"pool", "temp":27}
+{"type":"sauna", "temp":75}
+{"type":"weightroom", "weight":580, "lift":"squat rack"}
+{"type":"cardio", "id":6, "bpm":122}
+{"type":"sauna", "temp":76}
+{"type":"cardio", "id":14, "bpm":47}
+{"type":"pool", "temp":26}
+{"type":"emergency", "area":"weightroom"}
+{"type":"cardio", "id":4, "bpm":122}
+{"type":"pool", "temp":25}
+{"type":"pool", "temp":26}
+{"type":"sauna", "temp":75}
+{"type":"weightroom", "weight":597, "lift":"squat rack"}
+{"type":"pool", "temp":27}
+{"type":"emergency", "area":"sauna"}
+{"type":"sauna", "temp":74}
+{"type":"cardio", "id":4, "bpm":49}
+{"type":"sauna", "temp":75}
+{"type":"weightroom", "weight":578, "lift":"bench press"}
+{"type":"pool", "temp":26}
+{"type":"cardio", "id":3, "bpm":121}
+{"type":"cardio", "id":12, "bpm":124}
+{"type":"pool", "temp":25}
+{"type":"weightroom", "weight":541, "lift":"squat rack"}
+{"type":"pool", "temp":26}
+{"type":"sauna", "temp":74}
+{"type":"pool", "temp":25}
+{"type":"sauna", "temp":73}
+{"type":"pool", "temp":26}
+{"type":"cardio", "id":14, "bpm":50}
+{"type":"emergency", "area":"weightroom"}
+{"type":"pool", "temp":27}
+{"type":"cardio", "id":15, "bpm":50}
+{"type":"sauna", "temp":72}
+{"type":"pool", "temp":26}
+{"type":"emergency", "area":"weightroom"}
+{"type":"pool", "temp":27}
+{"type":"sauna", "temp":71}
+{"type":"pool", "temp":26}
+{"type":"sauna", "temp":72}
+{"type":"pool", "temp":27}
+{"type":"sauna", "temp":73}
+{"type":"emergency", "area":"sauna"}
+{"type":"sauna", "temp":74}
+{"type":"sauna", "temp":73}
+{"type":"cardio", "id":6, "bpm":47}
+{"type":"sauna", "temp":74}
+{"type":"cardio", "id":2, "bpm":47}
+{"type":"sauna", "temp":73}
+{"type":"pool", "temp":28}
+{"type":"cardio", "id":8, "bpm":49}
+{"type":"emergency", "area":"weightroom"}
+{"type":"pool", "temp":27}
+{"type":"cardio", "id":1, "bpm":49}
+{"type":"sauna", "temp":74}
+{"type":"pool", "temp":28}
+{"type":"sauna", "temp":75}
+{"type":"pool", "temp":27}
+{"type":"sauna", "temp":74}
+{"type":"sauna", "temp":76}
+{"type":"pool", "temp":27}
+{"type":"pool", "temp":28}
+{"type":"emergency", "area":"weightroom"}
+{"type":"sauna", "temp":77}
+{"type":"pool", "temp":29}
+{"type":"sauna", "temp":78}
+{"type":"pool", "temp":28}
+{"type":"sauna", "temp":77}
+{"type":"sauna", "temp":76}
+{"type":"weightroom", "weight":541, "lift":"deadlift"}
+{"type":"sauna", "temp":75}
+{"type":"emergency", "area":"cardio"}
+{"type":"sauna", "temp":74}
+{"type":"sauna", "temp":73}
+{"type":"sauna", "temp":72}
+{"type":"pool", "temp":29}
+{"type":"cardio", "id":3, "bpm":47}
+{"type":"emergency", "area":"weightroom"}
+{"type":"cardio", "id":7, "bpm":120}
+{"type":"weightroom", "weight":530, "lift":"bench press"}
+{"type":"pool", "temp":30}
+{"type":"emergency", "area":"weightroom"}
+{"type":"sauna", "temp":71}
+{"type":"weightroom", "weight":526, "lift":"squat rack"}
+{"type":"sauna", "temp":70}
+{"type":"sauna", "temp":71}
+{"type":"cardio", "id":8, "bpm":121}
+{"type":"pool", "temp":29}
+{"type":"sauna", "temp":70}
+{"type":"pool", "temp":30}
+{"type":"sauna", "temp":71}
+{"type":"pool", "temp":29}
+{"type":"weightroom", "weight":532, "lift":"squat rack"}
+{"type":"cardio", "id":7, "bpm":47}
+{"type":"pool", "temp":28}
+{"type":"pool", "temp":29}
+{"type":"sauna", "temp":70}
+{"type":"cardio", "id":2, "bpm":46}
+{"type":"cardio", "id":11, "bpm":123}
+{"type":"pool", "temp":30}
+{"type":"weightroom", "weight":509, "lift":"deadlift"}
+{"type":"cardio", "id":14, "bpm":121}
+{"type":"sauna", "temp":71}
+{"type":"pool", "temp":31}
+{"type":"emergency", "area":"sauna"}
+{"type":"weightroom", "weight":537, "lift":"squat rack"}
+{"type":"sauna", "temp":72}
+{"type":"emergency", "area":"cardio"}
+{"type":"pool", "temp":30}
+{"type":"sauna", "temp":71}
+{"type":"pool", "temp":29}
+{"type":"emergency", "area":"cardio"}
+{"type":"pool", "temp":28}
+{"type":"sauna", "temp":72}
