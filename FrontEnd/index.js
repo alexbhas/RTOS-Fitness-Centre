@@ -26,13 +26,12 @@ document.getElementById("file").onchange = function() {
     saunaScatter(temperatureData);
     poolScatter(temperatureData);
 
-    //Weight & Cardio Scatter 
+    //Weight Scatter Plot
     const weightData = getWeightData(objects);
     weightScatter(weightData);
      
-    //Cardio
+    //Cardio Scatter Plot
     const cardioData = getCardioData(objects);
-    console.log(cardioData);
     cardioScatter(cardioData);
 
   };
@@ -47,12 +46,12 @@ function getCardioData(cardioData){
     var jsonObject = cardioData[i];
     var type = jsonObject.type;
     if (type === "sauna" || type === "pool" || type === "emergency" || type === "weightroom") continue;
-    if (jsonObject.hasOwnProperty("cardio")) {
-      var cardio = jsonObject.bpm;
+    if (jsonObject.hasOwnProperty("bpm")) {
+      var bpm = jsonObject.bpm;
       if (cardioList.hasOwnProperty(type)) {
-        cardioList[type].push(cardio);
+        cardioList[type].push(bpm);
       } else {
-        cardioList[type] = [cardio];
+        cardioList[type] = [bpm];
       }
     }
   }
@@ -214,21 +213,20 @@ function poolScatter(tempData){
   Plotly.newPlot('poolDiv', data, layout);
 }
 
-function weightScatter(tempData){
-  tempData = tempData['weightroom'];
+function weightScatter(weightData){
+  weightData = weightData['weightroom'];
   
-  var min = Math.min.apply(Math, tempData) - 5;
-  var max = Math.max.apply(Math, tempData) + 5 ;
+  var min = Math.min.apply(Math, weightData) - 5;
+  var max = Math.max.apply(Math, weightData) + 5 ;
 
-  var valx = Array.apply(null, {length: tempData.length+1 }).map(Number.call, Number).slice(1);
+  var valx = Array.apply(null, {length: weightData.length+1 }).map(Number.call, Number).slice(1);
 
   var trace1 = {
     x: valx,
-    y: tempData,   //this will be array of sauna values
+    y: weightData,   //this will be array of sauna values
     mode: 'markers',
     type: 'scatter',
     name: 'Team A',
-    text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
     marker: { size: 12 }
   };
   
@@ -237,7 +235,7 @@ function weightScatter(tempData){
   
   var layout = {
     xaxis: {
-      range: [ 0, tempData.length+1 ]
+      range: [ 0, weightData.length+1 ]
     },
     yaxis: {
       range: [min, max]
@@ -248,14 +246,19 @@ function weightScatter(tempData){
   Plotly.newPlot('wegtDiv', data, layout);
 }
 
-function cardioScatter(){
+function cardioScatter(cardioData){
+  cardioData = cardioData['cardio'];
+  
+  var min = Math.min.apply(Math, cardioData) - 5;
+  var max = Math.max.apply(Math, cardioData) + 5 ;
+  var valx = Array.apply(null, {length: cardioData.length+1 }).map(Number.call, Number).slice(1);
+
   var trace1 = {
-    x: [1, 2, 3, 4, 5],
-    y: [1, 6, 3, 6, 1],   //this will be array of sauna values
+    x: valx,
+    y: cardioData,   //this will be array of sauna values
     mode: 'markers',
     type: 'scatter',
     name: 'Team A',
-    text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
     marker: { size: 12 }
   };
   
@@ -264,10 +267,10 @@ function cardioScatter(){
   
   var layout = {
     xaxis: {
-      range: [ 1, 9 ]
+      range: [0, cardioData.length+1]
     },
     yaxis: {
-      range: [0, 8]
+      range: [min, max]
     },
     title:'Cardio Area Emergency Log Points'
   };
