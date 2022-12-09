@@ -6,23 +6,17 @@ document.getElementById("file").onchange = function() {
   var reader = new FileReader();
 
   reader.onload = function(progressEvent) {
-    // Entire file
+    // Entire file, split by line, & map to object variable
     const text = this.result;
-    //output.innerText = text;
-    // By lines
     var lines = text.split('\n');
-
     objects = lines.map(line => JSON.parse(line));
-    //console.log(objects);
 
+    //Emergency Count Graph
     const emergencyCount = countEmergenciesInArea(objects);
-    //console.log(emergencyCount);
     setEmergencyDiv(emergencyCount);
 
     //Sauna & Pool Scatter Plot
     const temperatureData = getTempData(objects)
-    //console.log(temperatureData);
-
     saunaScatter(temperatureData);
     poolScatter(temperatureData);
 
@@ -35,7 +29,7 @@ document.getElementById("file").onchange = function() {
     cardioScatter(cardioData);
 
   };
-  //Display all Values on screen
+  //Send data to front-end
   reader.readAsText(file);
 };
 
@@ -100,7 +94,6 @@ function getTempData(tempData){
 }
 
 function countEmergenciesInArea(emergencyValues) {
-  // Create an empty object to store the counts for each area
   const counts = {};
 
   // Iterate over the emergencyValues array
@@ -141,8 +134,8 @@ function setEmergencyDiv(emergencyCount){
 }
 
 
-/* ========================================================================
- * Scatter Plot
+/* ======================================================================== *
+ *                              Scatter Plot                                *
  * ======================================================================== */
 
 function saunaScatter(tempData){
@@ -159,7 +152,6 @@ function saunaScatter(tempData){
     mode: 'markers',
     type: 'scatter',
     name: 'Team A',
-    //text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
     marker: { size: 12 }
   };
   
@@ -277,34 +269,3 @@ function cardioScatter(cardioData){
   
   Plotly.newPlot('cardDiv', data, layout);
 }
-
-
-//Scrapped code
-
-/*
-    for (var line = 0; line < lines.length; line++) {
-      //console.log(lines[line]);
-    }
-//Parse txt data into one JSON object
-// function txtToJson(file){
-//   var fs = require("fs");
-
-//   // Read the contents of the file as a string
-//   const fileContents = fs.readFileSync('sample.txt', 'utf8');
-
-//   // Split the string into an array of lines
-//   const lines = fileContents.split('\n');
-
-//   // Convert each line into a JSON object and store it in the objects array
-//   objects = lines.map(line => JSON.parse(line));
-
-//   return objects;
-// }
-
-*/
-
-// Create an empty object to hold the grouped data
-
-
-
-//{ weightroom: 3, cardio: 3, sauna: 1 }
