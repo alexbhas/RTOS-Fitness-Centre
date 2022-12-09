@@ -4,6 +4,11 @@ const output = document.getElementById("output")
 document.getElementById("file").onchange = function() {
   var file = this.files[0];
   var reader = new FileReader();
+  
+  //Scatter plots
+  poolScatter();
+  weightScatter();
+  cardioScatter();
   reader.onload = function(progressEvent) {
     // Entire file
     const text = this.result;
@@ -12,16 +17,43 @@ document.getElementById("file").onchange = function() {
     var lines = text.split('\n');
 
     objects = lines.map(line => JSON.parse(line));
-    console.log(objects);
+    //console.log(objects);
 
     const emergencyCount = countEmergenciesInArea(objects);
-    console.log(emergencyCount);
+    //console.log(emergencyCount);
     setEmergencyDiv(emergencyCount);
+
+    const tempData = getTempData(objects)
+    console.log(tempData);
+
+    //Sauna
+    saunaScatter(tempData);
+
 
   };
   //Display all Values on screen
   reader.readAsText(file);
 };
+
+function getTempData(tempData){
+  var temperatureLists = {};
+  
+  for (var i = 0; i < tempData.length; i++) {
+    var jsonObject = tempData[i];
+    var type = jsonObject.type;
+    if (type === "emergency" || type === "weightroom") continue;
+    if (jsonObject.hasOwnProperty("temp")) {
+      var temp = jsonObject.temp;
+      if (temperatureLists.hasOwnProperty(type)) {
+        temperatureLists[type].push(temp);
+      } else {
+        temperatureLists[type] = [temp];
+      }
+    }
+  }
+
+  return temperatureLists;
+}
 
 function countEmergenciesInArea(emergencyValues) {
   // Create an empty object to store the counts for each area
@@ -42,7 +74,7 @@ function countEmergenciesInArea(emergencyValues) {
 }
 
 function setEmergencyDiv(emergencyCount){
-  console.log(emergencyCount);
+  //console.log(emergencyCount);
   for(const key in emergencyCount){
     if(key === document.getElementById('sauna').id){
       const saunaElement = document.getElementById('sauna');
@@ -64,34 +96,6 @@ function setEmergencyDiv(emergencyCount){
   }
 }
 
-
-function printHello(){ 
-  saunaScatter();
-  poolScatter();
-  weightScatter();
-  cardioScatter();
-
-  //Get EmergencyCount
-  const textData = txtToJson();
-  const emergencyCount = countEmergenciesInArea(textData);
-
-  //Sauna value setting
-  var saunaPer = '70';
-  var saunaCnt = '7';
-
-  for(const key in emergencyCount){
-    console.log(key);
-    if(key === document.getElementById('sauna')){
-      const saunaElement = document.getElementById("sauna");
-      saunaElement.style.setProperty('--bar-value', );
-      saunaElement.title = 'Sauna - ' + emergencyCount[key].toString();
-    }
-  }
-
-}
-
-printHello();
-
 //window.onload = printHello()
 // for(const key in emergencyCount){
 //   if(emergencyCount[key] === document.getElementById('sauna')){
@@ -99,20 +103,28 @@ printHello();
 //   }
 // }
 
-
-
 /* ========================================================================
  * Scatter Plot
  * ======================================================================== */
 
-function saunaScatter(){
+function saunaScatter(tempData){
+  tempData = tempData['sauna'];
+  console.log(tempData)
+  
+  var min = Math.min.apply(Math, tempData) - 5;
+  var max = Math.max.apply(Math, tempData) + 5 ;
+  console.log("Min: "+ min + " Max: "+max);
+
+  var valx = Array.apply(null, {length: tempData.length+1 }).map(Number.call, Number).slice(1);
+  console.log(valx)
+
   var trace1 = {
-    x: [1, 2, 3, 4, 5],
-    y: [1, 6, 3, 6, 1],   //this will be array of sauna values
+    x: valx,
+    y: tempData,   //this will be array of sauna values
     mode: 'markers',
     type: 'scatter',
     name: 'Team A',
-    text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
+    //text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
     marker: { size: 12 }
   };
   
@@ -121,10 +133,10 @@ function saunaScatter(){
   
   var layout = {
     xaxis: {
-      range: [ 1, 9 ]
+      range: [ 0, tempData.length+1]
     },
     yaxis: {
-      range: [0, 8]
+      range: [min, max]
     },
     title:'Sauna Log Points'
   };
@@ -132,10 +144,20 @@ function saunaScatter(){
   Plotly.newPlot('saunDiv', data, layout);
 }
 
-function poolScatter(){
+function poolScatter(tempData){
+  tempData = tempData['pool'];
+  console.log(tempData)
+  
+  var min = Math.min.apply(Math, tempData) - 5;
+  var max = Math.max.apply(Math, tempData) + 5 ;
+  console.log("Min: "+ min + " Max: "+max);
+
+  var valx = Array.apply(null, {length: tempData.length+1 }).map(Number.call, Number).slice(1);
+  console.log(valx)
+
   var trace1 = {
-    x: [1, 2, 3, 4, 5],
-    y: [1, 6, 3, 6, 1],   //this will be array of pool values
+    x: valx,
+    y: tempData,   //this will be array of pool values
     mode: 'markers',
     type: 'scatter',
     name: 'Team A',
@@ -148,10 +170,10 @@ function poolScatter(){
   
   var layout = {
     xaxis: {
-      range: [ 1, 9 ]
+      range: [ 0, tempData.length+1]
     },
     yaxis: {
-      range: [0, 8]
+      range: [min, max]
     },
     title:'Pool Log Points'
   };
