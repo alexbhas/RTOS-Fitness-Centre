@@ -1,0 +1,386 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 900;
+    padding: 40px 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    background-color: blueviolet;
+    color: white;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover{
+    color: blueviolet;
+    background-color: whitesmoke;
+}
+
+.container{
+    margin: 0 auto;
+}
+
+/* .headers{
+    background-color: ;
+} */
+
+.logo{
+    width: 250px;
+    margin-left: 50px;
+    padding: 10px 0;
+    position: relative;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-size: 2.2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    transition: all 0.2s;
+}
+
+.ttl{
+    justify-content: center;
+    padding-left: 5%;
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    transition: all 0.2s;
+}
+
+nav{
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 5px 50px;
+    
+}
+
+.intro{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    font-size: 2.2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.Site-title{
+    font-size: 10rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-top: 10vmin;
+}
+
+.start{
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+input{
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.content{
+    padding-left: 30%;
+}
+
+.content > p{
+    width: 60%;
+}
+
+.accent-heading:after {
+    content: "";
+    display: block;
+    background-color: blueviolet;
+    margin-top: 0.125rem;
+    width: 5rem;
+    height: 0.3rem;
+  }
+
+/* Header Popups
+============================================================================= */
+
+/* General */
+.head-btn{
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.pop-header{
+    position: relative;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+/* References */
+.refPop{
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.ref-popup-content{
+    position:relative;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: black;
+    background-color: whitesmoke;
+    padding: 1rem 1.5rem;
+    width: 90%;
+    border-radius: 0.5rem; 
+}
+  
+.ref-close-button{
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgrey;
+}
+
+.ref-close-button:hover{
+    background-color: darkgray;
+}
+
+.show-refpopup{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+/* Contacts */
+.conPop{
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.con-popup-content{
+    position:relative;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: black;
+    background-color: whitesmoke;
+    padding: 1rem 1.5rem;
+    width: 90%;
+    border-radius: 0.5rem;
+}
+  
+.con-close-button{
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgrey;
+}
+
+.con-close-button:hover{
+    background-color: darkgray;
+}
+
+.show-conpopup{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+
+/* Bar Chart
+============================================================================= */
+
+
+
+.chart-wrap {
+    margin-left: 50px;
+    font-family: sans-serif;
+    height: 650px;
+    width: 300px;
+}
+.chart-wrap .title {
+    font-weight: bold;
+    font-size: 1.62em;
+    padding: 0.5em 0 1.8em 0;
+    text-align: center;
+    white-space: nowrap;
+}
+.chart-wrap.vertical .grid {
+    transform: translateY(-175px) translateX(175px) rotate(-90deg);
+}
+.chart-wrap.vertical .grid .bar::after {
+    transform: translateY(-50%) rotate(45deg);
+    display: block;
+}
+.chart-wrap.vertical .grid::before, .chart-wrap.vertical .grid::after {
+    transform: translateX(-0.2em) rotate(90deg);
+}
+.chart-wrap .grid {
+    position: relative;
+    padding: 5px 0 5px 0;
+    height: 100%;
+    width: 100%;
+    border-left: 2px solid #aaa;
+    background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, rgba(170, 170, 170, 0.7) 20%);
+}
+.chart-wrap .grid::before {
+    font-size: 0.8em;
+    font-weight: bold;
+    content: '0';
+    position: absolute;
+    left: -0.5em;
+    top: -1.5em;
+}
+.chart-wrap .grid::after {
+    font-size: 0.8em;
+    font-weight: bold;
+    content: '10';
+    position: absolute;
+    right: -1.5em;
+    top: -1.5em;
+}
+.chart-wrap .bar {
+    width: var(--bar-value);
+    height: 50px;
+    margin: 85px 0;
+    background-color: #f16335;
+    border-radius: 0 3px 3px 0;
+}
+.chart-wrap .bar:hover {
+    opacity: 0.7;
+    
+}
+.chart-wrap .bar::after {
+    content: attr(title);
+    margin-left: 100%;
+    padding: 10px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+
+/* Carousel
+============================================================================= */
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    background: #f1f1f1f1;
+  }
+  
+  /* Slides */
+  .mySlides {
+    display: none;
+    padding: 80px;
+    text-align: center;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: #888;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+  }
+  
+  /* The dot/bullet/indicator container */
+  .dot-container {
+    text-align: center;
+    padding: 20px;
+    background: #ddd;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  /* Add a background color to the active dot/circle */
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Add an italic font style to all quotes */
+  q {font-style: italic;}
+  
+  /* Add a blue color to the author */
+  .author {color: cornflowerblue;}

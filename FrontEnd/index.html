@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+    <head>
+        <meta charset="utf-8">
+        <title>Real Time Fitness Center Operating System</title>
+        <link rel="stylesheet" href="./main.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    
+    <body>
+
+        <!-- Header BAr -->         
+        <header class="container">
+            <p class="logo">COMP 4900 Project</p>
+            <nav>
+                <!-- Refernces Tab-->
+                <a onclick="refrenceFunction()" onkeydown="if (event.keyCode == 13) refrenceFunction()" class="head-btn pop" tabindex="0" style="margin-right: 25px;">Refrences</a>
+                <div class="refPop">
+                    <div class="ref-popup-content">
+                        <span class="ref-close-button">&times;</span>
+                        <div class="pop-header">
+                        <h2>Refrences​</h2>
+                        </div> 
+                        <a class="link" href="" >QNX Server...</a>
+                    </div>
+                    </div>
+
+                <!-- Contacts Tab -->
+                <a onclick="contactFunction()"  onkeydown="if (event.keyCode == 13) contactFunction()" class="head-btn pop" tabindex="0" >Contacts</a>
+                <div class="conPop">
+                    <div class="con-popup-content">
+                        <span class="con-close-button">&times;</span>
+                        <div class="pop-header">
+                        <h2>Contacts</h2>
+                        </div> 
+                        <a target="_blank" class="link" href="https://github.com/alexbhas" >Alex Bhasin</a><br><br>
+                        <a target="_blank" class="link" href="https://github.com/Blahmir" >Amir Abdurazak</a><br><br>
+                        <a target="_blank" class="link" href="https://github.com/Mohman556" >Mohamed Abdalla</a><br><br>
+                        <a target="_blank" class="link" href="https://github.com/younesbram" >Younes Brahimi</a>
+                    </div>
+                    </div>
+            </nav>
+        </header>
+
+        <!-- Landing Page -->         
+        <div id="landingPage">
+            <div class="container">
+                <div class="intro">
+                    <h1 class="Site-Title">Real Time <br>Fitness Center <br> Operating System</h1>
+                    <input type="file" id="file" style="display: none;">
+                    <label for="file">
+                        <a onclick="startFunction()"  onkeydown="if (event.keyCode == 13) startFunction()" class="start" tabindex="0" >Start Demo</a>
+                    </label>                    
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content Page -->
+        <div  id="contentPage">
+            <!-- <script>
+                document.getElementById('inputfile').addEventListener('change', function() {
+                var fr=new FileReader();
+                fr.onload=function(){
+                    document.getElementById('output').textContent=fr.result;
+                }
+                fr.readAsText(this.files[0]);
+                })
+            </script> -->
+
+            <div class="container content">    
+                <h1 >Demo Results Summary</h1>
+                <p>The states of the different rooms throughout the gym are simulated using QNX, this page provides a summary of the simulation. The simulation is used too keep track of each rooms current state, throught a tracking period, the simulationj may encounter emergencies. These emergencies occur when a component state is out of a threshold where it is deemed safe. An example of this could be the sauna temperature rising too high, the temperature is tracked and an emergency is logged to the simulation.</p>
+                <p>After the simulation has completed its runtime, the information loggerd throughout the session is inputted into a textfile. The textfile is then parsed ont this site to provide a summary of the simulation.</p>
+                
+                <p>The most pertinant information is the rate of emergencies by area. Each room is shown with the amount of emergencies that have occured throughout the runtime.</p>
+                <h2 class="accent-heading">Emergency Chart</h2>
+                <div class="chart-wrap vertical">
+                    <h2 class="title" style="margin-left: 30%;">Rate of Emergenicies by Area</h2>
+                    
+                    <div class="grid">
+                        <div id = "sauna" class="bar" style="--bar-value:0%;" title="Sauna - 0"></div>
+                        <div id = "weightroom" class="bar" style="--bar-value:0%;" title="Weightroom - 0"></div>
+                        <div id = "pool" class="bar" style="--bar-value:0%;" title="Pool - 0"></div>
+                        <div id = "cardio" class="bar" style="--bar-value:0%;" title="Cardio - 0"></div>   
+                    </div>
+                </div>
+                <p style="margin-top: -10%;">Next we will examine each rooms states individually.</p>
+                <br>
+                <h2 class="accent-heading">Individual Room Analysis</h2>
+                <p>The logs for each room will be analyzed in this section. The Sauna and the Pool state logs are sent randomlly, this means that usually the logged states are safe states. The Weightroom and Cardio rooms work differently, only abnormal states are logged.</p>
+                <br>
+
+                <!-- Slideshow container -->
+                <div class="slideshow-container" style="width: 70%;">
+
+                    <!-- Full-width slides/quotes -->
+                    <div class="mySlides">
+                        <h3>Sauna</h3>
+                        <p> The logs for the Sauna are as follows:</p>
+                        <div id='saunDiv' style="padding-left: 5%;"></div>
+                    </div>
+                
+                    <div class="mySlides">
+                        <h3>Pool</h3>
+                        <p> The logs for the Pool are as follows:</p>
+                        <div id='poolDiv' style="padding-left: 5%;"></div>
+                    </div>
+                
+                    <div class="mySlides">
+                        <h3>Weightroom</h3>
+                        <p> Weight detection logs for the Weightroom are as follows:</p>
+                        <div id='wegtDiv' style="padding-left: 5%;"></div>
+                    </div>
+
+                    <div class="mySlides">
+                        <h3>Cardio Area</h3>
+                        <p> The Emergency logs for the Cardio Area are as follows:</p>
+                        <div id='cardDiv' style="padding-left: 5%;"></div>
+                    </div>
+                
+                    <!-- Next/prev buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                
+                <!-- Dots/bullets/indicators -->
+                <div class="dot-container" style="width: 67%;">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                </div>
+
+            </div>
+        </div>
+
+        
+        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
+        <script src="./index.js"></script>
+        <script src="./main.js"></script>
+    </body>
+</html>
