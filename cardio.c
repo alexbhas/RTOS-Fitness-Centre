@@ -37,6 +37,7 @@ int main(int argc, char **argv){
 
 
 	while(1){
+		//Call the update functions, send information to the server if a abnormal rate was found
 		updateCardio(machines);
 		detectedRate(machines, machine);
 		if(!(machine[0] == -1)){
@@ -67,11 +68,11 @@ void generateCardio(int machines[][2]){
 }
 
 //Update function
-//Randomly change the heartrates across all of the machines
-//This function is meant to simulate someone reaching a dangerous heartrate during cardio
+//Randomly change the heart rates across all of the machines
+//This function is meant to simulate someone reaching a dangerous heart rate during cardio
 void updateCardio(int machines[][2]){
 
-	//Sleep for 2 seconds, arbitrary delay to update heartrates
+	//Sleep for 2 seconds, arbitrary delay to update heart rates
 	sleep(2);
 	int tmp;
 	int r;
@@ -90,11 +91,12 @@ void updateCardio(int machines[][2]){
 
 }
 
-//Detects an abnormally high heartrate in the machines
+//Detects an abnormally high heart rate in the machines
 void detectedRate(int machines[][2], int machine[]){
 
 	int r;
 	for(int i = 0; i < MACHINE_AMOUNT; i++){
+		//Find specific machines that have high heartrates, build an array to store the information
 		if(machines[i][1] >= MAX_HEART_RATE || machines[i][1] <= MIN_HEART_RATE){
 
 			machine[0] = machines[i][0];
