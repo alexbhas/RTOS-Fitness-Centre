@@ -1,5 +1,7 @@
 # RTOS-Fitness-Centre
-COMP 4900 Project
+COMP 4900 Final Project
+
+This project is concurrent monitoring and data tracking software for a fitness centre. The main server runs on QNX Neutrino, and produces output. This output can be uploaded to the front-end application, in order to display statistical information about the gym.
 
 Members:
 
@@ -11,4 +13,4 @@ Members:
 <br>
 <td><a href="https://github.com/Mohman556"><img src="https://avatars.githubusercontent.com/mohman556" width="66px;" alt="Mohamed"/><br /><sub><b>Mohamed</b></sub></a><br /></td>
 <br>
-This project is concurrent monitoring and data tracking software for a fitness centre. The main server runs on QNX Neutrino, and produces output. This output can be uploaded to the front-end application, in order to display statistical information about the gym.
+
